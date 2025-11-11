@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-
+    public Animator anim;
     private Vector3 mousePosition = new Vector3(0, 0, 0);
     private Vector3 playerMovement = new Vector3(0, 0, 0);
 
@@ -40,6 +40,8 @@ public class PlayerBehaviour : MonoBehaviour
     private float sAttackDuration = 0.1f;
 
     public float projectileSpeed = 5;
+    private string lastDirection = "";
+    public GameObject firepoint;
 
     private void Start()
     {
@@ -59,12 +61,15 @@ public class PlayerBehaviour : MonoBehaviour
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
             Quaternion rotation = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
-            transform.rotation = rotation;
+            firepoint.transform.rotation = rotation;
             transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
 
 
             playerMovement = movement.action.ReadValue<Vector2>();
             //Debug.Log(playerMovement);
+
+            
+            Debug.Log(movement.action.ReadValue<Vector2>().normalized);
 
             transform.position += playerMovement * speed * Time.deltaTime;
         }
@@ -85,16 +90,17 @@ public class PlayerBehaviour : MonoBehaviour
 
             if (look.action.IsPressed())
             {
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+                firepoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
             }
             else
             {
                 float moveAngle = Mathf.Atan2(playerMovement.x, playerMovement.y) * Mathf.Rad2Deg;
                 moveAngle = flipRotation ? -moveAngle : moveAngle;
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, moveAngle));
+                firepoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, moveAngle));
             }
-
             
+            //Debug.Log(look.action.ReadValue<Vector2>().normalized);
+
             transform.position += playerMovement * speed * Time.deltaTime;
 
         }
@@ -108,25 +114,52 @@ public class PlayerBehaviour : MonoBehaviour
                 StartCoroutine(MainAttackCooldown());
             }
         }
-        if (sAttack.action.triggered)
-        {
-            if (!sAttackCooldown)
-            {
-                Swing();
-                sAttackCooldown = true;
-                StartCoroutine(SecondaryAttackCooldown());
-            }
-        }
-        //Debug.Log(mAttackCooldown);
+        Debug.Log(mAttackCooldown);
 
     }
 
     public void Fire()
     {
-        GameObject new_projectile = Instantiate(projectileRef, transform.position, transform.rotation);
+        GameObject new_projectile = Instantiate(projectileRef, transform.position, firepoint.transform.rotation);
         new_projectile.GetComponent<projectileBehaviour>().Setup(projectileSpeed);
     }
 
+    private void HandleAnimations()
+    {
+        // Vector3 dir = ((Vector2)transform.position - look.action.ReadValue<Vector2>()).normalized;
+
+        GetDirection(movement.action.ReadValue<Vector2>().normalized);
+
+        anim.Play(lastDirection + "_Idle");
+    }
+    private Vector3 GetDirection(Vector3 input)
+    {
+        Vector3 finalDirection = Vector2.zero;
+        if (input.y > 0.01f)
+        {
+            lastDirection = "Up";
+            finalDirection = new Vector2(0, 1);
+        }
+        else if (input.y < -0.01f)
+        {
+            lastDirection = "Down";
+            finalDirection = new Vector2(0, -1);
+        }
+        else if (input.x > 0.01f)
+        {
+            lastDirection = "Right";
+            finalDirection = new Vector2(1, 0);
+        }
+        else if (input.x < -0.01f)
+        {
+            lastDirection = "Left";
+            finalDirection = new Vector2(-1, 0);
+        }
+        else
+            finalDirection = Vector2.zero;
+
+        return finalDirection;
+    }
     IEnumerator MainAttackCooldown()
     {
         yield return new WaitForSeconds(mAttackCooldownTime);

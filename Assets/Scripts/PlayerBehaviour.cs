@@ -114,8 +114,18 @@ public class PlayerBehaviour : MonoBehaviour
                 StartCoroutine(MainAttackCooldown());
             }
         }
-        Debug.Log(mAttackCooldown);
 
+        if (sAttack.action.triggered)
+        {
+            if (!sAttackCooldown)
+            {
+                Swing();
+                sAttackCooldown = true;
+                StartCoroutine(SecondaryAttackCooldown());
+            }
+        }
+        Debug.Log(mAttackCooldown);
+        HandleAnimations();
     }
 
     public void Fire()

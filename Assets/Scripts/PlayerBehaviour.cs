@@ -30,10 +30,14 @@ public class PlayerBehaviour : MonoBehaviour
     private bool mAttackCooldown = false;
     private bool sAttackCooldown = false;
     private float mAttackCooldownTime = 1.0f;
-    private float sAttackCooldownTime = 1.0f;
+    private float sAttackCooldownTime = 0.5f;
 
     [SerializeField]
     private GameObject projectileRef;
+    [SerializeField]
+    private GameObject meleeRef;
+    [SerializeField]
+    private float sAttackDuration = 0.1f;
 
     public float projectileSpeed = 5;
 
@@ -43,6 +47,7 @@ public class PlayerBehaviour : MonoBehaviour
         look.action.Enable();
         mAttack.action.Enable();
         sAttack.action.Enable();
+        meleeRef.gameObject.SetActive(false);
     }
 
     void Update()
@@ -103,7 +108,16 @@ public class PlayerBehaviour : MonoBehaviour
                 StartCoroutine(MainAttackCooldown());
             }
         }
-        Debug.Log(mAttackCooldown);
+        if (sAttack.action.triggered)
+        {
+            if (!sAttackCooldown)
+            {
+                Swing();
+                sAttackCooldown = true;
+                StartCoroutine(SecondaryAttackCooldown());
+            }
+        }
+        //Debug.Log(mAttackCooldown);
 
     }
 
@@ -117,6 +131,26 @@ public class PlayerBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(mAttackCooldownTime);
         mAttackCooldown = false;
+    }
+
+    public void Swing()
+    {
+        meleeRef.gameObject.SetActive(true);
+        StartCoroutine(PerformSAttack());
+    }
+
+    IEnumerator SecondaryAttackCooldown()
+    {
+        yield return new WaitForSeconds(sAttackCooldownTime);
+        sAttackCooldown = false;
+
+    }
+
+    IEnumerator PerformSAttack()
+    {
+        yield return new WaitForSeconds(sAttackDuration);
+        meleeRef.gameObject.SetActive(false);
+
     }
 
 }

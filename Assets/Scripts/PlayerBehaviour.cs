@@ -35,11 +35,13 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private GameObject projectileRef;
     [SerializeField]
-    private GameObject meleeRef;
+    private meleeBehaviour meleeRef;
     [SerializeField]
     private float sAttackDuration = 0.1f;
 
-    public float projectileSpeed = 5;
+    public float projectileSpeed = 10;
+    public float projectileDamage = 2;
+    public float meleeDamage = 5;
     private string lastDirection = "";
     public GameObject firepoint;
 
@@ -66,17 +68,14 @@ public class PlayerBehaviour : MonoBehaviour
 
 
             playerMovement = movement.action.ReadValue<Vector2>();
-            //Debug.Log(playerMovement);
 
             
-            Debug.Log(movement.action.ReadValue<Vector2>().normalized);
 
             transform.position += playerMovement * speed * Time.deltaTime;
         }
         else if (playerInput.currentControlScheme == "Controller")
         {
 
-            //Debug.Log(look.action.ReadValue<Vector2>());
 
             
             rightJoystickInput = look.action.ReadValue<Vector2>();
@@ -99,7 +98,6 @@ public class PlayerBehaviour : MonoBehaviour
                 firepoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, moveAngle));
             }
             
-            //Debug.Log(look.action.ReadValue<Vector2>().normalized);
 
             transform.position += playerMovement * speed * Time.deltaTime;
 
@@ -124,14 +122,13 @@ public class PlayerBehaviour : MonoBehaviour
                 StartCoroutine(SecondaryAttackCooldown());
             }
         }
-        Debug.Log(mAttackCooldown);
         HandleAnimations();
     }
 
     public void Fire()
     {
         GameObject new_projectile = Instantiate(projectileRef, transform.position, firepoint.transform.rotation);
-        new_projectile.GetComponent<projectileBehaviour>().Setup(projectileSpeed);
+        new_projectile.GetComponent<projectileBehaviour>().Setup(projectileSpeed, projectileDamage);
     }
 
     private void HandleAnimations()
@@ -179,6 +176,7 @@ public class PlayerBehaviour : MonoBehaviour
     public void Swing()
     {
         meleeRef.gameObject.SetActive(true);
+        meleeRef.damage = meleeDamage;
         StartCoroutine(PerformSAttack());
     }
 

@@ -7,6 +7,8 @@ using UnityEngine.InputSystem;
 public class PlayerBehaviour : MonoBehaviour
 {
     public Animator anim;
+    public Rigidbody2D rb;
+
     private Vector3 mousePosition = new Vector3(0, 0, 0);
     private Vector3 playerMovement = new Vector3(0, 0, 0);
 
@@ -71,7 +73,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             
 
-            transform.position += playerMovement * speed * Time.deltaTime;
+            //transform.position += playerMovement * speed * Time.deltaTime;
         }
         else if (playerInput.currentControlScheme == "Controller")
         {
@@ -97,11 +99,13 @@ public class PlayerBehaviour : MonoBehaviour
                 moveAngle = flipRotation ? -moveAngle : moveAngle;
                 firepoint.transform.rotation = Quaternion.Euler(new Vector3(0, 0, moveAngle));
             }
-            
 
-            transform.position += playerMovement * speed * Time.deltaTime;
+            
+            //transform.position += playerMovement * speed * Time.deltaTime;
 
         }
+
+        
 
         if (mAttack.action.triggered)
         {
@@ -122,6 +126,11 @@ public class PlayerBehaviour : MonoBehaviour
                 StartCoroutine(SecondaryAttackCooldown());
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        MoveCharacter(playerMovement);
         HandleAnimations();
     }
 
@@ -129,6 +138,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         GameObject new_projectile = Instantiate(projectileRef, transform.position, firepoint.transform.rotation);
         new_projectile.GetComponent<projectileBehaviour>().Setup(projectileSpeed, projectileDamage);
+    }
+
+    private void MoveCharacter(Vector2 direction)
+    {
+        rb.MovePosition((Vector2)transform.position + (direction * speed * Time.deltaTime));
     }
 
     private void HandleAnimations()
@@ -139,6 +153,7 @@ public class PlayerBehaviour : MonoBehaviour
 
         anim.Play(lastDirection + "_Idle");
     }
+
     private Vector3 GetDirection(Vector3 input)
     {
         Vector3 finalDirection = Vector2.zero;

@@ -66,7 +66,7 @@ public class PlayerBehaviour : MonoBehaviour
 
             Quaternion rotation = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
             firepoint.transform.rotation = rotation;
-            transform.eulerAngles = new Vector3(0, 0, transform.eulerAngles.z);
+            firepoint.transform.eulerAngles = new Vector3(0, 0, firepoint.transform.eulerAngles.z);
 
 
             playerMovement = movement.action.ReadValue<Vector2>();

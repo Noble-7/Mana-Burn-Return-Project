@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-public class projectileBehaviour : MonoBehaviour
+public class EnemyProjectileBehaviour : MonoBehaviour
 {
     private float speed;
     private float damage;
@@ -33,9 +33,9 @@ public class projectileBehaviour : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         //Debug.Log("Collided with " + other.gameObject);
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            other.gameObject.GetComponent<EnemyBehaviour>().takeDamage(damage);
+            other.gameObject.GetComponent<PlayerBehaviour>().takeDamage(damage);
         }
     }
 

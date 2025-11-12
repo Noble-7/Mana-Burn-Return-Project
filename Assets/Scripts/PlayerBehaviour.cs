@@ -151,7 +151,14 @@ public class PlayerBehaviour : MonoBehaviour
 
         GetDirection(movement.action.ReadValue<Vector2>().normalized);
 
-        anim.Play(lastDirection + "_Idle");
+        if (movement.action.ReadValue<Vector2>() == Vector2.zero)
+        {
+            anim.Play(lastDirection + "_Idle");
+        }
+        else
+        {
+            anim.Play(lastDirection + "_Walk");
+        }
     }
 
     private Vector3 GetDirection(Vector3 input)
@@ -206,6 +213,11 @@ public class PlayerBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(sAttackDuration);
         meleeRef.gameObject.SetActive(false);
+
+    }
+
+    public void takeDamage(float damage)
+    {
 
     }
 

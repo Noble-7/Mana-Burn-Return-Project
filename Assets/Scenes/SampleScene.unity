@@ -1736,21 +1736,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac3584e6b88a6604980c169e475d3ccc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
   anim: {fileID: 1166104310}
   rb: {fileID: 480563367}
+  projectileRef: {fileID: 967442351346795340, guid: 70b557737e9fd8a47987dfb8ee1cb075, type: 3}
+  meleeRef: {fileID: 974451191}
+  firepoint: {fileID: 1698339564}
+  gold: 0
+  maxHealth: 0
+  health: 0
   speed: 5
+  meleeDamage: 5
+  projectileDamage: 2
+  projectileSpeed: 5
+  hasKey: 0
   playerInput: {fileID: 480563366}
   movement: {fileID: -1217397692360176251, guid: 215237add32ffd543bc39ff216a5ab3d, type: 3}
   look: {fileID: -5203154908682529666, guid: 215237add32ffd543bc39ff216a5ab3d, type: 3}
   mAttack: {fileID: 8478237646312327133, guid: 215237add32ffd543bc39ff216a5ab3d, type: 3}
   sAttack: {fileID: 8209442792501430646, guid: 215237add32ffd543bc39ff216a5ab3d, type: 3}
-  projectileRef: {fileID: 967442351346795340, guid: 70b557737e9fd8a47987dfb8ee1cb075, type: 3}
-  meleeRef: {fileID: 974451191}
-  sAttackDuration: 0.1
-  projectileSpeed: 5
-  projectileDamage: 2
-  meleeDamage: 5
-  firepoint: {fileID: 1698339564}
 --- !u!212 &480563364
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5339,6 +5343,61 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+--- !u!1 &1625652993
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1625652995}
+  - component: {fileID: 1625652994}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1625652994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625652993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 366722e9a09c83a42a799bb75a0fc08c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerGold: 0
+  playerMaxHealth: 0
+  playerHealth: 0
+  playerSpeed: 0
+  playerSAttackDuration: 0
+  playerProjectileSpeed: 0
+  playerProjectileDamage: 0
+  playerMeleeDamage: 0
+  playerMAttackCooldownTime: 0
+  playerSAttackCooldownTime: 0
+  currentGamestate: 1
+--- !u!4 &1625652995
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625652993}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1682424975
 GameObject:
   m_ObjectHideFlags: 0
@@ -5520,6 +5579,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2721693310122154999, guid: 19829498459473340a2554cfc84f0c53, type: 3}
+      propertyPath: isDoorLocked
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721693310122154999, guid: 19829498459473340a2554cfc84f0c53, type: 3}
       propertyPath: connectedDoor
       value: 
       objectReference: {fileID: 557678440}
@@ -5587,3 +5650,4 @@ SceneRoots:
   - {fileID: 770223232}
   - {fileID: 1067456421}
   - {fileID: 1130664273}
+  - {fileID: 1625652995}

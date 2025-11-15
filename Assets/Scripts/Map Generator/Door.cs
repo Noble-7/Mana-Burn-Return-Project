@@ -18,5 +18,12 @@ public class Door : MonoBehaviour
             Camera.main.transform.position = connectedDoor.cameraOffset;
             collision.transform.position = connectedDoor.spawnPoint.position;
         }
+        else if (collision.tag == "Player" && isDoorLocked && collision.GetComponent<PlayerBehaviour>().hasKey)
+        {
+            collision.GetComponent<PlayerBehaviour>().hasKey = false;
+            Camera.main.transform.position = connectedDoor.cameraOffset;
+            collision.transform.position = connectedDoor.spawnPoint.position;
+        }
+
     }
 }

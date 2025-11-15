@@ -6,18 +6,43 @@ using UnityEngine.InputSystem;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    //Game Manager
+    public GameManager gameManager;
+
+    //Stuff that moves with the player
     public Animator anim;
     public Rigidbody2D rb;
+    [SerializeField]
+    private GameObject projectileRef;
+    [SerializeField]
+    private meleeBehaviour meleeRef;
+    private string lastDirection = "";
 
+
+    //Necessary for controls to work
     private Vector3 mousePosition = new Vector3(0, 0, 0);
     private Vector3 playerMovement = new Vector3(0, 0, 0);
-
-
     private Vector2 rightJoystickInput;
     private bool flipRotation = true;
+    public GameObject firepoint;
 
-    public float speed = 5;
+    //Player Stats
+    public int gold;
+    public int maxHealth;
+    public int health;
+    public float speed;
+    public float meleeDamage;
+    public float projectileDamage;
+    public float projectileSpeed;
+    private float mAttackCooldownTime;
+    private float sAttackCooldownTime;
+    private float sAttackDuration;
 
+    //Player mid-game stats?
+    public bool hasKey;
+
+
+    //Controls/Keybinds
     [SerializeField]
     private PlayerInput playerInput;
     [SerializeField]
@@ -29,55 +54,69 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private InputActionReference sAttack;
 
+    //Needed for calculations regarding attacking
     private bool mAttackCooldown = false;
     private bool sAttackCooldown = false;
-    private float mAttackCooldownTime = 1.0f;
-    private float sAttackCooldownTime = 0.5f;
 
-    [SerializeField]
-    private GameObject projectileRef;
-    [SerializeField]
-    private meleeBehaviour meleeRef;
-    [SerializeField]
-    private float sAttackDuration = 0.1f;
 
-    public float projectileSpeed = 10;
-    public float projectileDamage = 2;
-    public float meleeDamage = 5;
-    private string lastDirection = "";
-    public GameObject firepoint;
+
+
+
+
+
+
 
     private void Start()
     {
+        //Enable the controls whenever the game starts
         movement.action.Enable();
         look.action.Enable();
         mAttack.action.Enable();
         sAttack.action.Enable();
+
+        //Make sure the player's melee weapon isn't attacking when the game starts
         meleeRef.gameObject.SetActive(false);
+
+        //Get and set a reference to the game manager to populate stats
+        gameManager = FindObjectOfType<GameManager>();
+        if (gameManager != null)
+        {
+            gold = gameManager.playerGold;
+            maxHealth = gameManager.playerMaxHealth;
+            health = gameManager.playerHealth;
+            speed = gameManager.playerSpeed;
+            sAttackDuration = gameManager.playerSAttackDuration;
+            projectileSpeed = gameManager.playerProjectileSpeed;
+            projectileDamage = gameManager.playerProjectileDamage;
+            meleeDamage = gameManager.playerMeleeDamage;
+            mAttackCooldownTime = gameManager.playerMAttackCooldownTime;
+            sAttackCooldownTime = gameManager.playerSAttackCooldownTime;
+        }
     }
 
     void Update()
     {
-
+        //CONTROLS, here we check to see if we are on K&M
         if (playerInput.currentControlScheme == "Keyboard and Mouse")
         {
+            //The position of the mouse is read with the new unity input system
             mousePosition = look.action.ReadValue<Vector2>();
+            //Shenanigans (to be honest it doesn't work without this code so, I guess just leave this here)
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
+            //Stuff regarding the player's look rotation, so like, for shooting
             Quaternion rotation = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward);
             firepoint.transform.rotation = rotation;
             firepoint.transform.eulerAngles = new Vector3(0, 0, firepoint.transform.eulerAngles.z);
 
-
+            //Not sure about this atm
             playerMovement = movement.action.ReadValue<Vector2>();
 
-            
-
-            //transform.position += playerMovement * speed * Time.deltaTime;
+           
         }
         else if (playerInput.currentControlScheme == "Controller")
         {
-
+            //Run this otherwise if we are on controller (In theory this could be a switch statement if we wanna include like, touch controls. But like lol mobile
 
             
             rightJoystickInput = look.action.ReadValue<Vector2>();
@@ -189,6 +228,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         return finalDirection;
     }
+
+
+
     IEnumerator MainAttackCooldown()
     {
         yield return new WaitForSeconds(mAttackCooldownTime);

@@ -32,7 +32,6 @@ public class EnemyProjectileBehaviour : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Collided with " + other.gameObject);
         if (other.gameObject.CompareTag("Player"))
         {
             other.gameObject.GetComponent<PlayerBehaviour>().takeDamage(damage);

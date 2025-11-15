@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    private GameManager gameManager;
+
     private float health;
     private float armor;
 
@@ -42,13 +44,21 @@ public class EnemyBehaviour : MonoBehaviour
 
         if(health <= 0)
         {
-            
+            gameManager.allEnemies.Remove(this);
+            if (gameManager.allEnemies.Count == 0)
+            {
+                playerRef.hasKey = true;
+                Debug.Log("Player has key");
+            }
             Destroy(gameObject);
         }
     }
 
     private void Awake()
     {
+
+        gameManager = FindObjectOfType<GameManager>();
+        
 
         switch (enemy)
         {
@@ -123,7 +133,6 @@ public class EnemyBehaviour : MonoBehaviour
             break;
 
         }
-        Debug.Log(gameObject.name + "'s firepoint is " + firepoint.gameObject.activeInHierarchy);
     }
 
     IEnumerator cooldown()

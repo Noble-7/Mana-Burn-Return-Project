@@ -4850,6 +4850,63 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &770223232
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631692347271214446, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_Name
+      value: KoboldMage (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
 --- !u!1 &974451187
 GameObject:
   m_ObjectHideFlags: 0
@@ -4997,6 +5054,128 @@ PolygonCollider2D:
       - {x: -0.5, y: -0.28866667}
       - {x: 0.5, y: -0.28866667}
   m_UseDelaunayMesh: 0
+--- !u!1001 &1067456421
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631692347271214446, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_Name
+      value: KoboldMage (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172569592746406544, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+--- !u!1001 &1130664273
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631692347271214446, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_Name
+      value: KoboldMage (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7172569592746406544, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
 --- !u!1 &1166104307
 GameObject:
   m_ObjectHideFlags: 0
@@ -5103,6 +5282,63 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1001 &1494458957
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4725169409471209612, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6631692347271214446, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
+      propertyPath: m_Name
+      value: KoboldMage
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c47652e3dd175874cbc10d23ca13d480, type: 3}
 --- !u!1 &1682424975
 GameObject:
   m_ObjectHideFlags: 0
@@ -5183,6 +5419,49 @@ Transform:
   m_Father: {fileID: 480563365}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1799000145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1894318482}
+  - component: {fileID: 1894318481}
+  m_Layer: 0
+  m_Name: 
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1799000146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894318480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1799000147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894318480}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1894318480
 GameObject:
   m_ObjectHideFlags: 0
@@ -5195,17 +5474,11 @@ GameObject:
   - component: {fileID: 1799000146}
   m_Layer: 0
   m_Name: Map Generator
-  - component: {fileID: 1894318482}
-  - component: {fileID: 1894318481}
-  m_Layer: 0
-  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1799000146
-  m_IsActive: 1
 --- !u!114 &1894318481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5223,13 +5496,6 @@ MonoBehaviour:
   shop: {fileID: -96259786, guid: 764eabaf39b8f564881cc2b67affc5e2, type: 3}
   boss: {fileID: 1904510798, guid: 764eabaf39b8f564881cc2b67affc5e2, type: 3}
   secret: {fileID: -115027921, guid: 764eabaf39b8f564881cc2b67affc5e2, type: 3}
---- !u!4 &1799000147
-  m_GameObject: {fileID: 1894318480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 366722e9a09c83a42a799bb75a0fc08c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1894318482
 Transform:
   m_ObjectHideFlags: 0
@@ -5240,10 +5506,6 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.0456054, y: -0.07729319, z: 0.020678353}
-  m_GameObject: {fileID: 1894318480}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.701315, y: -1.2854913, z: 1.4712889}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5321,3 +5583,7 @@ SceneRoots:
   - {fileID: 7689353783633935112}
   - {fileID: 557678442}
   - {fileID: 1894318482}
+  - {fileID: 1494458957}
+  - {fileID: 770223232}
+  - {fileID: 1067456421}
+  - {fileID: 1130664273}
